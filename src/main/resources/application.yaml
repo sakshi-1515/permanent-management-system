@@ -1,0 +1,34 @@
+
+spring:
+  application:
+    name: permanent-employee-management-system
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+app:
+  datasource:
+    postgres:
+      url: jdbc:postgresql://localhost:5432/pms_db
+      username: postgres
+      password: admin
+      driver-class-name: org.postgresql.Driver
+    h2:
+      url: jdbc:h2:file:./data/contractordb;DB_CLOSE_DELAY=-1
+      username: sa
+      password: ""
+      driver-class-name: org.h2.Driver
+
+  hibernate:
+    ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8082
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
